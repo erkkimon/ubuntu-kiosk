@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Palautteet
+Comment=Auta uusien käyttöjärjestelmien räätälöinnissä antamalla ideoita ja raportoimalla ongelmista!
+Exec=firefox "https://docs.google.com/forms/d/15h1QGILpS-q57sNO1GPJgFq1Xdts0iDVcSzW__ls_K8/viewform?c=0&w=1" 
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=feedback
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+X-AppInstall-Package=firefox
+

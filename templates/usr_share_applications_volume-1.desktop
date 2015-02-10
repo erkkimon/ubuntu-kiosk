@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Volume_1
+Comment=Tallenna tiedostosi mieluummin Google Driveen. 
+Exec=nautilus smb://edu-file01.local/volume_1
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=network-workgroup
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+X-AppInstall-Package=firefox
+

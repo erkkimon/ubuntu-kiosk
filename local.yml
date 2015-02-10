@@ -1,0 +1,65 @@
+#jinja2:  variable_start_string: "[%" , variable_end_string: "%]"
+---
+
+# usage: ansible-playbook -i hosts edu-kiosk-description.yml 
+
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+    - name: Update the list of available packages (= apt-get update)
+      apt: update_cache=yes
+    - name: Upgrade all packages
+      apt: upgrade=dist
+
+    - name: Install basic software
+      apt: name={{ item }} state=present
+      with_items:
+        - chromium-browser 
+        - gnome-shell
+        - blender
+        - preload
+        - vim
+        - gimp
+        - libreoffice
+        - vlc
+        - imagemagick
+        - openshot
+        - shutter
+        - tmux
+        - irssi
+        - audacity
+
+    - name: Copy file including Firefox preference overrides
+      copy: src=templates/usr_lib_firefox_defaults_pref_vendor-gre.js dest=/usr/lib/firefox/defaults/pref/vendor-gre.js
+
+    - name: Disable crash notifications (Apport)
+      copy: src=templates/etc_default_apport dest=/etc/default/apport
+
+    - name: Create directory for guest session
+      file: path='/etc/guest-session' state=directory
+
+    - name: Create directory for guest session preferences
+      file: path='/etc/guest-session/skel/.config/dconf' state=directory
+    - name: Copy preferences for guest session such as set of launchers
+      copy: src=templates/etc_guest-session_skel_.config_dconf_user dest=/etc/guest-session/skel/.config/dconf/user
+
+    - name: Copy LightDM settings file in its place
+      copy: src=templates/etc_lightdm_lightdm.conf dest=/etc/lightdm/lightdm.conf
+
+    - name: Copy needed files to create a custom launcher for Google Drive
+      copy: src=templates/usr_share_applications_google-drive.desktop dest=/usr/share/applications/google-drive.desktop 
+    - name: Copy the icon for Google Drive launcher
+      copy: src=templates/usr_share_pixmaps_google-drive.png dest=/usr/share/pixmaps/google-drive.png
+
+    - name: Copy needed files to create a custom launcher for feedback 
+      copy: src=templates/usr_share_applications_feedback.desktop dest=/usr/share/applications/feedback.desktop
+    - name: Copy the icon for feedback
+      copy: src=templates/usr_share_pixmaps_feedback.png dest=/usr/share/pixmaps/feedback.png
+
+    - name: Copy needed files to create a custom launcher for Volume_1
+      copy: src=templates/usr_share_applications_volume-1.desktop dest=/usr/share/applications/volume-1.desktop 
+
+    - name: Copy printer settings
+      copy: src=templates/etc_cups_printers.conf dest=/etc/cups/printers.conf
+

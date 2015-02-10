@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Drive
+Comment=Tallenna kaikki tiedostosi Google Driveen. Kaikki muu pyyhkiytyy ulos kirjautuessasi.
+Exec=firefox https://drive.google.com
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=google-drive
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+X-AppInstall-Package=firefox
+
