@@ -58,8 +58,10 @@
     - name: Copy the icon for feedback
       copy: src=templates/usr_share_pixmaps_feedback.png dest=/usr/share/pixmaps/feedback.png
 
-    - name: Copy needed files to create a custom launcher for Volume_1
-      copy: src=templates/usr_share_applications_volume-1.desktop dest=/usr/share/applications/volume-1.desktop 
+    - name: Create directory for custom background images
+      file: path='/usr/share/backgrounds/kiosk' state=directory
+    - name: Copy background image
+      copy: src=templates/usr_share_backgrounds_kiosk_bg.jpg dest=/usr/share/backgrounds/kiosk/bg.jpg 
 
     - name: Copy printer settings
       copy: src=templates/etc_cups_printers.conf dest=/etc/cups/printers.conf
