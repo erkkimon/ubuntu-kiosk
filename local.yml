@@ -29,6 +29,7 @@
         - tmux
         - irssi
         - audacity
+        - ubuntu-restricted-extras
 
     - name: Copy file including Firefox preference overrides
       copy: src=templates/usr_lib_firefox_defaults_pref_vendor-gre.js dest=/usr/lib/firefox/defaults/pref/vendor-gre.js
