@@ -67,5 +67,5 @@
       copy: src=templates/etc_cups_printers.conf dest=/etc/cups/printers.conf
 
     - name: Copy prefs.sh to run custom commands to modify the session
-      copy: src=templates/etc_guest-session_prefs.sh dest=/etc/guest-session/prefs.sh
+      copy: src=templates/etc_guest-session_auto.sh dest=/etc/guest-session/auto.sh
 
