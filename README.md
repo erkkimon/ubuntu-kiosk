@@ -68,7 +68,7 @@ Do the installation in "next-next-next" style until the installation is ready an
 ```
 sudo apt-get update &&
 sudo apt-get -y install git ansible &&
-printf "1 2 cron.daily sudo ansible-pull -d /home/edu-admin/.ansible-pull-cache -U https://github.com/erkkimon/ubuntu-kiosk.git -i \"localhost,\" > /home/edu-admin/ansible-log.txt\n\n" | sudo tee --append /etc/anacrontab &&
+printf "1 2 cron.daily ansible-pull -d /home/edu-admin/.ansible-pull-cache -U https://github.com/erkkimon/ubuntu-kiosk.git -i \"localhost,\" > /home/edu-admin/ansible-log.txt\n\n" | sudo tee --append /etc/anacrontab &&
 sudo ansible-pull -d /home/edu-admin/.ansible-pull-cache -U https://github.com/erkkimon/ubuntu-kiosk.git -i "localhost," > /home/edu-admin/ansible-log.txt &&
 echo "Now the system matches the description and it's safe to reboot."
 ```
